@@ -1,0 +1,14 @@
+body {
+  background-color: #262f38; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Arial;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  margin-top: -43%;
+  align-items:center;
+}
+.rounded-corners {
+  border-radius: 5px;
+}

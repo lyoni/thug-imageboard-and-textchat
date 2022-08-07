@@ -1,0 +1,105 @@
+<html>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link rel="stylesheet" type="text/css" href="./static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/font.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/file-input.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/977021498621562910/1005265403221659728/favicon.ico">
+    <head>
+        <title id="gfg"></title>
+        <style>
+            table{
+                margin:0px auto;
+                border-collapse: collapse;
+                width:100%;
+                text-align:left;
+            }
+
+            input{
+                width:100%;
+                height:100%;
+            }
+
+            button{
+                width:100%;
+                height:100%;
+            }
+
+            table, th, td{
+                border: 1px solid black;
+                padding:10px;
+            }
+
+            table tr th:nth-child(1){
+                width:30%;
+            }
+
+            table tr th:nth-child(2){
+                width:50%;
+            }
+
+            table tr th:nth-child(3){
+                width:20%;
+            }
+
+            #content{
+                margin:0px auto;    
+                max-width:45em;
+            }
+
+        </style>
+    </head>
+    <script src=
+    "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>    
+    <script>
+     
+    /* Add "https://api.ipify.org?format=json" statement
+               this will communicate with the ipify servers in
+               order to retrieve the IP address $.getJSON will
+               load JSON-encoded data from the server using a
+               GET HTTP request */
+                
+    $.getJSON("https://api.ipify.org?format=json", function(data) {
+         
+        // Setting text of element P with id gfg
+        $("#gfg").html(data.ip);
+    })
+    </script>
+
+    <body>
+    <canvas id="c" width="1000" height="880" style="cursor: default;"></canvas>
+        <div id=content>
+            <h1>Thug.Monster community Chat</h1>
+            <span><a href="http://thug.monster">Thug.Monster</a> community image-board</span>
+            <table>
+                <tr>
+                    <form method="POST" enctype="multipart/form-data">
+                        <td><input maxlength="8" style="background-color:black; border-color:black; color:white" placeholder="Input Username" name="username"></td>
+                        <td><input maxlength="85" style="background-color:black; border-color:black; color:white" placeholder="Input Text-Body here" name="text"></td>
+                        <td><button onclick="test()" style="background-color:black; border-color:black; color:grey" class="button rounded-corners">Submit</button ></td>
+                    </form>
+                <script>
+                  function test() {
+                    alert("uploaded!");
+                  }
+                </script>
+                </tr>
+                <tr>
+                    <th >Username</th>
+                    <th>Text Body</th>
+                    <th>Date</th>
+                </tr>
+                {% for post in posts %}
+                    <tr>
+                        <td>{{post.username}}</td>
+                        <td>{{post.text}}</td>
+                        <td>{{post.date}}</td>
+                    </tr>
+                {% endfor %}
+                        <p><small>Rules: no cp links, or anything that violates US law</small></p>
+                        <p><small>Made by lyoni#0007</small></p>
+            </table>
+        </div>
+    </body>
+</html>
